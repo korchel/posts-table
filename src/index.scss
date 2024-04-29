@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/montserrat-v26-cyrillic_latin-regular.woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  src: url('./fonts/montserrat-v26-cyrillic_latin-800.woff2');
+}
+
+@font-face {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/pt-sans-v17-latin-regular.woff2');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+
+

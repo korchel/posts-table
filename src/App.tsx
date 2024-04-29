@@ -1,12 +1,16 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import { Provider } from 'react-redux';
+
+import store from './store';
+import Main from './components/Main';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-
-    </div>
+    <Provider store={store}>
+      <Main />
+    </Provider>
   );
-}
+};
 
 export default App;

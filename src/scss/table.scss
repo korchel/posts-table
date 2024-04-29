@@ -1,0 +1,13 @@
+.table {
+  border-collapse: collapse;
+  .table__cell {
+    border: 1px solid $gray;
+    padding: 0.5em;
+  }
+  .table__cell_center {
+    text-align: center;
+  }
+  .table__cell_pointer {
+    cursor: pointer;
+  }
+}

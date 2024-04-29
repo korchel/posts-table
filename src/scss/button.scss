@@ -1,0 +1,27 @@
+.button {
+  width: 100%;
+  padding: 1em;
+  border: none;
+  border-radius: 0.25rem;
+
+  font-size: inherit;
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+.button_color_primary {
+  background: $primary-color;
+  color: $white;
+  &:hover {
+    background: $primary-color-hover;
+  }
+}
+
+.button_color_ghost {
+  background: none;
+  color: $blue;
+  &:hover {
+    color: $primary-color;
+  }
+}
