@@ -44,18 +44,18 @@ const Form: React.FC = () => {
   });
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <InputField value={values.company} handleChange={handleChange} name="company" label='Название организации' required />
-      <InputField value={values.phone} handleChange={handleChange} name="phone" label='Телефон' required />
-      <InputField value={values.eMail} handleChange={handleChange} name="eMail" label='E-mail' required />
-      <InputImage value={values.logo} handleChange={handleChange} name="logo" />
-      <InputField value={values.field} handleChange={handleChange} name="field" label='Направление' required select />
-      <InputField value={values.webSite} handleChange={handleChange} name="webSite" icon="globe" />
-      <InputField value={values.vk} handleChange={handleChange} name="vk" icon="vk" />
-      <InputField value={values.ok} handleChange={handleChange} name="ok" icon="ok" />
-      <InputField value={values.fb} handleChange={handleChange} name="fb" icon="fb" />
-      <InputField value={values.ig} handleChange={handleChange} name="ig" icon="ig" />
-      <InputField value={values.yt} handleChange={handleChange} name="yt" icon="yt" />
-      <InputField value={values.name} handleChange={handleChange} name="name" label="Руководитель" />
+      <InputField handleChange={handleChange} mask="" value={values.company} name="company" label='Название организации' required />
+      <InputField handleChange={handleChange} mask="" value={values.phone} name="phone" label='Телефон' required />
+      <InputField handleChange={handleChange} mask="" value={values.eMail} name="eMail" label='E-mail' required />
+      <InputImage handleChange={handleChange} value={values.logo} name="logo" />
+      <InputField handleChange={handleChange} mask="" value={values.field} name="field" label='Направление' required select />
+      <InputField handleChange={handleChange} mask="" value={values.webSite} name="webSite" icon="globe" />
+      <InputField handleChange={handleChange} mask="vk.com/" value={values.vk} name="vk" icon="vk" />
+      <InputField handleChange={handleChange} mask="ok.com/" value={values.ok} name="ok" icon="ok" />
+      <InputField handleChange={handleChange} mask="facebook.com/" value={values.fb} name="fb" icon="fb" />
+      <InputField handleChange={handleChange} mask="instagram.com/" value={values.ig} name="ig" icon="ig" />
+      <InputField handleChange={handleChange} mask="youtube.com/" value={values.yt} name="yt" icon="yt" />
+      <InputField handleChange={handleChange} mask="" value={values.name} name="name" label="Руководитель" />
       <div>
         <Button type="submit" colorType='primary'>Стать партнёром проекта</Button>
         <Button onClick={() => dispatch(closeModal())}>Отменить</Button>
