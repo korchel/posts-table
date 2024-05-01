@@ -30,7 +30,7 @@ const InputField: React.FC<IInputFieldProps> = ({
   return (
     <div className={clsx('inputField', { inputField_flex: icon }, className)}>
       <label
-        className={clsx('inputField__label', { inputField__label_required: required })}
+        className={clsx('label', { label_required: required })}
         htmlFor={name}
       >
         {label}

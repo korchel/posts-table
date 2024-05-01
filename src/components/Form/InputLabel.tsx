@@ -7,7 +7,7 @@ interface IInputLabelProps extends DetailedHTMLProps<LabelHTMLAttributes<HTMLLab
 
 const InputLabel: React.FC<IInputLabelProps> = ({ children, ...props }) => {
   return (
-    <label {...props}>{children}</label>
+    <label className="label" {...props}>{children}</label>
   );
 };
 

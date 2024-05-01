@@ -16,6 +16,7 @@ plugins:
 rules:
   {
     "semi": [1, "always"],
+    "@typescript-eslint/no-misused-promises": 0,
     "@typescript-eslint/semi": "off",
     "no-confusing-void-expression": 0,
     "@typescript-eslint/non-nullable-type-assertion-style": 0,

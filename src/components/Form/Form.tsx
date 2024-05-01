@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import InputField from './InputField';
-import InputImage from './InputImage';
+import FileInput from './FileInput';
 import Button from '../Button';
 import { fetchData } from '../../store/dataSlice';
 import { useDispatch } from 'react-redux';
@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
 const Form: React.FC = () => {
   const dispatch = useDispatch<AppDispatchType>();
 
-  const { handleSubmit, handleChange, values } = useFormik({
+  const { handleSubmit, handleChange, values, setFieldValue, errors, touched } = useFormik({
     initialValues: {
       company: '',
       phone: '',
@@ -37,7 +37,9 @@ const Form: React.FC = () => {
       name: '',
     },
     validationSchema,
-    onSubmit: () => {
+    onSubmit: (values) => {
+      const data = new FormData();
+      console.log(data);
       dispatch(fetchData());
       dispatch(closeModal());
     }
@@ -47,7 +49,7 @@ const Form: React.FC = () => {
       <InputField handleChange={handleChange} mask="" value={values.company} name="company" label='Название организации' required />
       <InputField handleChange={handleChange} mask="" value={values.phone} name="phone" label='Телефон' required />
       <InputField handleChange={handleChange} mask="" value={values.eMail} name="eMail" label='E-mail' required />
-      <InputImage handleChange={handleChange} value={values.logo} name="logo" />
+      <FileInput setFieldValue={setFieldValue} name="logo" error={errors.logo} touched={touched.logo} />
       <InputField handleChange={handleChange} mask="" value={values.field} name="field" label='Направление' required select />
       <InputField handleChange={handleChange} mask="" value={values.webSite} name="webSite" icon="globe" />
       <InputField handleChange={handleChange} mask="vk.com/" value={values.vk} name="vk" icon="vk" />
@@ -60,7 +62,7 @@ const Form: React.FC = () => {
         <Button type="submit" colorType='primary'>Стать партнёром проекта</Button>
         <Button onClick={() => dispatch(closeModal())}>Отменить</Button>
       </div>
-      </form>
+    </form>
   );
 };
 

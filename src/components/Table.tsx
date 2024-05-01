@@ -29,16 +29,18 @@ const Table: React.FC = () => {
           <th className="table__cell table__cell_pointer" onClick={() => { handleClick('title'); }}>Название</th>
           <th className="table__cell table__cell_pointer" onClick={() => { handleClick('body'); }}>Содержание</th>
         </tr>
-        {data.map((item) => {
-          return (
-            <tr key={item.id}>
-              <td className="table__cell table__cell_center">{item.id}</td>
-              <td className="table__cell table__cell_center">{item.userId}</td>
-              <td className="table__cell">{item.title}</td>
-              <td className="table__cell">{item.body}</td>
-            </tr>
-          );
-        })}
+        <tbody>
+          {data.map((item) => {
+            return (
+              <tr key={item.id}>
+                <td className="table__cell table__cell_center">{item.id}</td>
+                <td className="table__cell table__cell_center">{item.userId}</td>
+                <td className="table__cell">{item.title}</td>
+                <td className="table__cell">{item.body}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </>
   );

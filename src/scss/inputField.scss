@@ -1,8 +1,12 @@
 .inputField {
   width: 100%;
   padding: 0.5em 1em;
+
   border: 1px solid $light-gray;
   border-radius: 0.1rem;
+
+  color: $black;
+
   &:focus {
     box-shadow: 0 0 2px 2px $light-gray;
   }
@@ -19,28 +23,8 @@
   .inputField__input_padding {
     padding: 0.5em 0;
   }
-  .inputField__label {
-    display: block;
-    font-size: 0.75em;
-    line-height: 1em;
-    color: #6A6E72;
-  }
-
-  .inputField__label_required {
-    &::before {
-      content: '\2731';
-      font-size: 1em;
-      color: $primary-color;
-    }
-  }
-
 }
 
 .inputField_flex {
   display: flex;
 }
-
-
-
-
-
