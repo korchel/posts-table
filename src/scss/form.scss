@@ -1,5 +1,17 @@
-.form {
-  display: flex;
-  flex-direction: column;
+.grid {
+  display: grid;
+  grid-template-columns: 362px auto;
   gap: 2rem;
+}
+
+.grid__col2 {
+  grid-column: span 2;
+}
+
+.grid__row3 {
+  grid-row: span 3;
+}
+
+.grid_mt {
+  margin-top: 2.25rem;
 }

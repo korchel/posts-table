@@ -20,7 +20,7 @@ const getImageUrl = async (file: File): Promise<FileReader> => (
   })
 );
 
-const FileInput: React.FC<IFileInputProps> = ({ value, name, className, setFieldValue, error, touched }) => {
+const FileInput: React.FC<IFileInputProps> = ({ name, className, setFieldValue, error, touched }) => {
   const [image, setImage] = useState<string>('');
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = async (e) => {
