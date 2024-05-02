@@ -23,6 +23,16 @@
   .inputField__input_padding {
     padding: 0.5em 0;
   }
+
+  .inputField__select {
+    option {
+      width: 100%;
+    }
+  }
+
+  .inputField__select_padding {
+    padding: 0.25em 0;
+  }
 }
 
 .inputField_flex {
