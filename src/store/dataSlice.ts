@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit'
 import axios from 'axios';
 
 import type { RootStateType } from './index';
-import type { SortDirection, SortKey } from '../types';
+import type { SortDirection, SortKey, IPost } from '../types';
 
 export const fetchData = createAsyncThunk(
   'fetchData',
@@ -12,13 +12,6 @@ export const fetchData = createAsyncThunk(
   }
 );
 
-interface IPost {
-  userId: number,
-  id: number,
-  title: string,
-  body: string,
-}
-
 interface IState {
   loadingState: 'idle' | 'loading' | 'failed',
   loadingError: string | null,
@@ -26,6 +19,7 @@ interface IState {
   dataWasFetched: boolean,
   sortKey: SortKey,
   sortDirection: SortDirection,
+  filter: string,
 }
 
 const initialState: IState = {
@@ -35,6 +29,7 @@ const initialState: IState = {
   dataWasFetched: false,
   sortKey: 'id',
   sortDirection: 'up',
+  filter: '',
 };
 
 const dataSlice = createSlice({
@@ -46,7 +41,10 @@ const dataSlice = createSlice({
     },
     setSortDirection: (state, { payload }) => {
       state.sortDirection = payload;
-    }
+    },
+    setFilter: (state, { payload }) => {
+      state.filter = payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -67,7 +65,7 @@ const dataSlice = createSlice({
   },
 });
 
-export const { setSortKey, setSortDirection } = dataSlice.actions;
+export const { setSortKey, setSortDirection, setFilter } = dataSlice.actions;
 
 export const getloadingState = (state: RootStateType): string => state.dataSlice.loadingState;
 export const getLoadingError = (state: RootStateType): string | null => state.dataSlice.loadingError;
@@ -75,6 +73,7 @@ export const getData = (state: RootStateType): IPost[] => state.dataSlice.data;
 export const getDataWasFetched = (state: RootStateType): boolean => state.dataSlice.dataWasFetched;
 export const getSortKey = (state: RootStateType): SortKey => state.dataSlice.sortKey;
 export const getSortDierction = (state: RootStateType): SortDirection => state.dataSlice.sortDirection;
+export const getFilter = (state: RootStateType): string => state.dataSlice.filter;
 
 export const getSortedData = createSelector(
   getData,
@@ -91,6 +90,12 @@ export const getSortedData = createSelector(
       return 0;
     });
   }
+);
+
+export const getFilteredData = createSelector(
+  getSortedData,
+  getFilter,
+  (data, filter) => data.filter((item: IPost) => item.body.includes(filter) || item.title.includes(filter))
 );
 
 export default dataSlice.reducer;

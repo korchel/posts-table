@@ -26,7 +26,7 @@ const SelectInput: React.FC<ISelectInputProps> = ({
       >
         {label}
       </label>
-      <select name={name} value={value} onChange={handleChange} className='inputField__select inputField__input inputField__select_padding'>
+      <select id={name} name={name} value={value} onChange={handleChange} className='inputField__select inputField__input inputField__select_padding'>
         <option value="Экология">Экология</option>
         <option value="Саентология">Саентология</option>
         <option value="Конспирология">Конспирология</option>
