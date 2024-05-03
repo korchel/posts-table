@@ -4,11 +4,22 @@ import clsx from 'clsx';
 interface IButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   children: ReactNode;
   colorType?: 'ghost' | 'primary';
+  className?: string;
 }
 
-const Button: React.FC<IButtonProps> = ({ children, colorType = 'ghost', ...props }) => {
+const Button: React.FC<IButtonProps> = ({ children, colorType = 'ghost', className, ...props }) => {
   return (
-    <button {...props} className={clsx('button', { button_color_primary: colorType === 'primary' }, { button_color_ghost: colorType === 'ghost' })} >
+    <button
+      {...props}
+      className={
+        clsx(
+          'button',
+          { button_color_primary: colorType === 'primary' },
+          { button_color_ghost: colorType === 'ghost' },
+          className
+        )
+      }
+    >
       {children}
     </button>
   );
