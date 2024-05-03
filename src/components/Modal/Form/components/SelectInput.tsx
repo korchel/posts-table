@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import Select, { type StylesConfig, type ActionMeta } from 'react-select';
 import { type FormikErrors, type FormikValues } from 'formik';
 
+import ErrorMessage from './ErrorMessage';
+
 interface ISelectInputProps {
   label?: string | null;
   required?: boolean;
@@ -10,6 +12,8 @@ interface ISelectInputProps {
   setFieldValue: (field: string, value: string) => Promise<void> | Promise<FormikErrors<FormikValues>>;
   value: string;
   className?: string,
+  error?: string | undefined,
+  touched?: boolean | undefined,
 }
 
 interface ISelectOption {
@@ -77,6 +81,8 @@ const SelectInput: React.FC<ISelectInputProps> = ({
   required = false,
   label = null,
   className,
+  error,
+  touched
 }) => {
   const handleSelect: onSelect = (option) => {
     const _option = option as ISelectOption;
@@ -84,7 +90,7 @@ const SelectInput: React.FC<ISelectInputProps> = ({
   };
 
   return (
-    <div className={clsx('inputField', className)}>
+    <div className={clsx('inputField', { inputField_error: error && touched }, className)}>
       <label
         className={clsx('label', { label_required: required })}
         htmlFor={name}
@@ -104,6 +110,7 @@ const SelectInput: React.FC<ISelectInputProps> = ({
         value={value ? { value, label: value } : ''}
         onChange={handleSelect}
       />
+      {error && touched && <ErrorMessage error={error} />}
     </div>
   );
 };

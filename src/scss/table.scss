@@ -1,4 +1,5 @@
 .tableContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +9,7 @@
 .table {
   border-collapse: collapse;
   border-radius: 0.5rem;
-  min-width: 700px;
+  width: 100%;
   .table__cell {
     border: 1px solid $light-gray;
     padding: 0.5em;

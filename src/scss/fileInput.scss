@@ -46,10 +46,12 @@
     filter: grayscale(50%);
     z-index: -1;
   }
-
   .inputContainer__image_bg {
     background-color: $gray;
     opacity: 70%;
+  }
+  .inputContainer__image_error {
+    background-color: $primary-color;
   }
   .inputContainer__button {
     position: absolute;
@@ -63,9 +65,4 @@
   }
 }
 
-.inputContainer__errorMessage {
-  position: absolute;
-  bottom: 0;
 
-  color: red;
-}

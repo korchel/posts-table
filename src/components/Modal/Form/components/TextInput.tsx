@@ -2,6 +2,8 @@ import React, { type LegacyRef } from 'react';
 import clsx from 'clsx';
 import InputMask, { type ReactInputMask } from 'react-input-mask';
 
+import ErrorMessage from './ErrorMessage';
+
 interface ITextInputProps {
   ref?: LegacyRef<ReactInputMask> | undefined,
   mask: string,
@@ -12,6 +14,8 @@ interface ITextInputProps {
   handleChange: (e: React.ChangeEvent) => void;
   value: string;
   className?: string,
+  error?: string | undefined,
+  touched?: boolean | undefined,
 }
 
 const TextInput: React.FC<ITextInputProps> = ({
@@ -23,10 +27,12 @@ const TextInput: React.FC<ITextInputProps> = ({
   label = null,
   icon = null,
   className,
+  error,
+  touched,
   ...props
 }) => {
   return (
-    <div className={clsx('inputField', { inputField_flex: icon }, className)}>
+    <div className={clsx('inputField', { inputField_flex: icon }, { inputField_error: error && touched }, className)}>
       <label
         className={clsx('label', { label_required: required })}
         htmlFor={name}
@@ -44,6 +50,7 @@ const TextInput: React.FC<ITextInputProps> = ({
         id={name}
       />
       {icon && <img className="inputField__icon" src={`./icons/${icon}.svg`} alt={icon} />}
+      {error && touched && <ErrorMessage error={error} />}
     </div>
   );
 };

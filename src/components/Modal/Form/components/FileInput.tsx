@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { type FormikErrors, type FormikValues } from 'formik';
 import React, { useState, type ChangeEventHandler, type DetailedHTMLProps, type InputHTMLAttributes } from 'react';
 
+import ErrorMessage from './ErrorMessage';
+
 interface IFileInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   name: string,
   setFieldValue: (field: string, value: File) => Promise<void> | Promise<FormikErrors<FormikValues>>,
@@ -50,7 +52,7 @@ const FileInput: React.FC<IFileInputProps> = ({ name, className, setFieldValue, 
           onChange={(e) => { handleChange(e); }}
           className="inputContainer__input"
         />
-        <img src={image} className={clsx('inputContainer__image', { inputContainer__image_bg: !image })} />
+        <img src={image} className={clsx('inputContainer__image', { inputContainer__image_bg: !image }, { inputContainer__image_error: error && touched })} />
         <img className="inputContainer__icon" src="./icons/file.svg" />
         <p className='inputContainer__text'>Выберите файл</p>
         <button
@@ -60,7 +62,7 @@ const FileInput: React.FC<IFileInputProps> = ({ name, className, setFieldValue, 
         >
           <img src='./icons/closeButton.svg' />
         </button>
-        {error && touched && <p className="inputContainer__errorMessage">{error}</p>}
+        {error && touched && <ErrorMessage error={error} />}
       </label>
     </div>
   );

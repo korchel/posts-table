@@ -1,4 +1,5 @@
 .inputField {
+  position: relative;
   width: 100%;
   padding: 0.5em 1em;
 
@@ -41,5 +42,9 @@
 
 .inputField_short {
   max-width: 500px;
+}
+
+.inputField_error {
+  border: 1px solid $primary-color;
 }
 

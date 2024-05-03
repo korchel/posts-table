@@ -46,11 +46,11 @@ const Form: React.FC = () => {
   });
   return (
     <form className="grid grid_mt" onSubmit={handleSubmit}>
-      <TextInput handleChange={handleChange} mask="" value={values.company} name="company" label='Название организации' required />
+      <TextInput handleChange={handleChange} mask="" value={values.company} name="company" label='Название организации' required error={errors.company} touched={touched.company} />
       <FileInput setFieldValue={setFieldValue} className="grid__row3" name="logo" error={errors.logo} touched={touched.logo} />
-      <TextInput handleChange={handleChange} mask="" value={values.phone} name="phone" label='Телефон' required />
-      <TextInput handleChange={handleChange} mask="" value={values.eMail} name="eMail" label='E-mail' required />
-      <SelectInput setFieldValue={setFieldValue} className="grid__col2" value={values.field} name="field" label='Направление' required />
+      <TextInput handleChange={handleChange} mask="" value={values.phone} name="phone" label='Телефон' required error={errors.phone} touched={touched.phone} />
+      <TextInput handleChange={handleChange} mask="" value={values.eMail} name="eMail" label='E-mail' required error={errors.eMail} touched={touched.eMail} />
+      <SelectInput setFieldValue={setFieldValue} className="grid__col2" value={values.field} name="field" label='Направление' required error={errors.field} touched={touched.field} />
       <TextInput handleChange={handleChange} className="grid__col2" mask="" value={values.webSite} name="webSite" icon="globe" />
       <TextInput handleChange={handleChange} className="grid__col2" mask="vk.com/" value={values.vk} name="vk" icon="vk" />
       <TextInput handleChange={handleChange} className="grid__col2" mask="ok.com/" value={values.ok} name="ok" icon="ok" />

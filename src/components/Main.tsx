@@ -5,7 +5,7 @@ import Table from './Table';
 import { getShown } from '../store/modalSlice';
 import Modal from './Modal/Modal';
 import Preview from './Preview';
-import BackDrop from './Modal/BackDrop';
+import BackDrop from './BackDrop';
 import { getDataWasFetched } from '../store/dataSlice';
 
 const Main: React.FC = () => {
