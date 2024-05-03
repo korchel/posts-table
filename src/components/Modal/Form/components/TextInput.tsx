@@ -32,7 +32,7 @@ const TextInput: React.FC<ITextInputProps> = ({
   ...props
 }) => {
   return (
-    <div className={clsx('inputField', { inputField_flex: icon }, { inputField_error: error && touched }, className)}>
+    <div className={clsx('inputField', { inputField_error: error && touched }, className)}>
       <label
         className={clsx('label', { label_required: required })}
         htmlFor={name}

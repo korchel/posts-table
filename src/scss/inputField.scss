@@ -12,6 +12,14 @@
     box-shadow: 0 0 2px 2px $light-gray;
   }
 
+  .inputField__icon {
+    position: absolute;
+    top: 19px;
+    right: 1rem;
+    width: 18px;
+    height: 18px;
+  }
+
   .inputField__input {
     width: 100%;
     border: none;
@@ -24,20 +32,6 @@
   .inputField__input_padding {
     padding: 0.5em 0;
   }
-
-  .inputField__select {
-    option {
-      width: 100%;
-    }
-  }
-
-  .inputField__select_padding {
-    padding: 0.25em 0;
-  }
-}
-
-.inputField_flex {
-  display: flex;
 }
 
 .inputField_short {

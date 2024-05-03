@@ -2,10 +2,16 @@
   display: grid;
   grid-template-columns: 362px auto;
   gap: 2rem;
+  @media (max-width: 800px) {
+    grid-template-columns: auto;
+  }
 }
 
 .grid__col2 {
   grid-column: span 2;
+  @media (max-width: 800px) {
+    grid-column: span 1;
+  }
 }
 
 .grid__row3 {
