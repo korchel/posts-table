@@ -5,11 +5,11 @@ import * as Yup from 'yup';
 import TextInput from './components/TextInput';
 import FileInput from './components/FileInput';
 import SelectInput from './components/SelectInput';
-import Button from '../Button';
-import { fetchData } from '../../store/dataSlice';
+import Button from '../../Button';
+import { fetchData } from '../../../store/dataSlice';
 import { useDispatch } from 'react-redux';
-import { type AppDispatchType } from '../../store';
-import { closeModal } from '../../store/modalSlice';
+import { type AppDispatchType } from '../../../store';
+import { closeModal } from '../../../store/modalSlice';
 
 const validationSchema = Yup.object().shape({
   company: Yup.string().required('Обязательное поле'),
@@ -50,7 +50,7 @@ const Form: React.FC = () => {
       <FileInput setFieldValue={setFieldValue} className="grid__row3" name="logo" error={errors.logo} touched={touched.logo} />
       <TextInput handleChange={handleChange} mask="" value={values.phone} name="phone" label='Телефон' required />
       <TextInput handleChange={handleChange} mask="" value={values.eMail} name="eMail" label='E-mail' required />
-      <SelectInput handleChange={handleChange} className="grid__col2" value={values.field} name="field" label='Направление' required />
+      <SelectInput setFieldValue={setFieldValue} className="grid__col2" value={values.field} name="field" label='Направление' required />
       <TextInput handleChange={handleChange} className="grid__col2" mask="" value={values.webSite} name="webSite" icon="globe" />
       <TextInput handleChange={handleChange} className="grid__col2" mask="vk.com/" value={values.vk} name="vk" icon="vk" />
       <TextInput handleChange={handleChange} className="grid__col2" mask="ok.com/" value={values.ok} name="ok" icon="ok" />
