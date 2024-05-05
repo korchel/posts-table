@@ -1,11 +1,10 @@
-import React, { type LegacyRef } from 'react';
+import React from 'react';
 import clsx from 'clsx';
-import InputMask, { type ReactInputMask } from 'react-input-mask';
+import InputMask from '@mona-health/react-input-mask';
 
 import ErrorMessage from './ErrorMessage';
 
 interface ITextInputProps {
-  ref?: LegacyRef<ReactInputMask> | undefined,
   mask: string,
   icon?: null | 'vk' | 'ig' | 'fb' | 'ok' | 'globe' | 'yt';
   label?: string | null;
@@ -41,6 +40,7 @@ const TextInput: React.FC<ITextInputProps> = ({
       </label>
       <InputMask
         mask={mask}
+        maskPlaceholder={null}
         alwaysShowMask
         value={value}
         onChange={handleChange}

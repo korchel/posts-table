@@ -48,15 +48,15 @@ const Form: React.FC = () => {
     <form className="grid grid_mt" onSubmit={handleSubmit}>
       <TextInput handleChange={handleChange} mask="" value={values.company} name="company" label='Название организации' required error={errors.company} touched={touched.company} />
       <FileInput setFieldValue={setFieldValue} className="grid__row3" name="logo" error={errors.logo} touched={touched.logo} />
-      <TextInput handleChange={handleChange} mask="" value={values.phone} name="phone" label='Телефон' required error={errors.phone} touched={touched.phone} />
+      <TextInput handleChange={handleChange} mask="+7 999 999 99 99" value={values.phone} name="phone" label='Телефон' required error={errors.phone} touched={touched.phone} />
       <TextInput handleChange={handleChange} mask="" value={values.eMail} name="eMail" label='E-mail' required error={errors.eMail} touched={touched.eMail} />
       <SelectInput setFieldValue={setFieldValue} className="grid__col2" value={values.field} name="field" label='Направление' required error={errors.field} touched={touched.field} />
       <TextInput handleChange={handleChange} className="grid__col2" mask="" value={values.webSite} name="webSite" icon="globe" />
-      <TextInput handleChange={handleChange} className="grid__col2" mask="vk.com/" value={values.vk} name="vk" icon="vk" />
-      <TextInput handleChange={handleChange} className="grid__col2" mask="ok.com/" value={values.ok} name="ok" icon="ok" />
-      <TextInput handleChange={handleChange} className="grid__col2" mask="facebook.com/" value={values.fb} name="fb" icon="fb" />
-      <TextInput handleChange={handleChange} className="grid__col2" mask="instagram.com/" value={values.ig} name="ig" icon="ig" />
-      <TextInput handleChange={handleChange} className="grid__col2" mask="youtube.com/" value={values.yt} name="yt" icon="yt" />
+      <TextInput handleChange={handleChange} className="grid__col2" mask={`vk.com/${'a'.repeat(50)}`} value={values.vk} name="vk" icon="vk" />
+      <TextInput handleChange={handleChange} className="grid__col2" mask={`ok.com/${'a'.repeat(50)}`} value={values.ok} name="ok" icon="ok" />
+      <TextInput handleChange={handleChange} className="grid__col2" mask={`f\\acebook.com/${'a'.repeat(50)}`} value={values.fb} name="fb" icon="fb" />
+      <TextInput handleChange={handleChange} className="grid__col2" mask={`inst\\agr\\am.com/${'a'.repeat(50)}`} value={values.ig} name="ig" icon="ig" />
+      <TextInput handleChange={handleChange} className="grid__col2" mask={`youtube.com/${'a'.repeat(50)}`} value={values.yt} name="yt" icon="yt" />
       <TextInput handleChange={handleChange} className="grid__col2" mask="" value={values.name} name="name" label="Руководитель" />
       <div className="grid__col2" >
         <Button type="submit" colorType="primary">Стать партнёром проекта</Button>
