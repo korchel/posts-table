@@ -1,5 +1,5 @@
 .backDrop {
-  display: block;
+  opacity: 0;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -7,6 +7,12 @@
 
   cursor: pointer;
   background: $gray;
+  z-index: -11;
+
+  transition: opacity 0.25s;
+}
+
+.backDrop_shown {
   opacity: 0.5;
-  z-index: 1;
+  z-index: 9;
 }
