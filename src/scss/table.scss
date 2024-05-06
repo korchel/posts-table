@@ -10,6 +10,7 @@
   border-collapse: collapse;
   border-radius: 0.5rem;
   width: 100%;
+  font-size: 14px;
   .table__cell {
     border: 1px solid $light-gray;
     padding: 0.5em;
@@ -27,4 +28,5 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }

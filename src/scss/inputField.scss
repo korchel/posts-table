@@ -8,6 +8,10 @@
 
   color: $black;
 
+  &:focus-within {
+    box-shadow: 0 0 2px 2px $light-gray;
+  }
+
   .inputField__icon {
     position: absolute;
     top: 19px;
@@ -36,8 +40,4 @@
 
 .inputField_error {
   border: 1px solid $primary-color;
-}
-
-.inputField_focus {
-  box-shadow: 0 0 2px 2px $light-gray;
 }
